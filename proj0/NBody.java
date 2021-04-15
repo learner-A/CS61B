@@ -58,5 +58,13 @@ public class NBody {
                 planets[i].update(dt, xForces[i], yForces[i]);
             }
         }
+
+        StdOut.printf("%d\n", num);
+        StdOut.printf("%.2e\n", radius);
+        for (Planet planet : planets) {
+            StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
+                    planet.xxPos, planet.yyPos, planet.xxVel,
+                    planet.yyVel, planet.mass, planet.imgFileName);
+        }
     }
 }
