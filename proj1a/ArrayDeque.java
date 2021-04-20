@@ -1,28 +1,28 @@
 import javax.swing.plaf.synth.SynthTextAreaUI;
 
-public class ArrayDeque <Item> {
-    public int size;
-    public Item[] item;
-    public int startIndex;
-    public int endIndex;
+public class ArrayDeque<T> {
+    private int size;
+    private T[] item;
+    private int startIndex;
+    private int endIndex;
 
     public ArrayDeque() {
-        this.item = (Item[]) new Object[8];
+        this.item = (T[]) new Object[8];
         this.size = 0;
         this.startIndex = 0;
         this.endIndex = this.size;
     }
 
     private void reSize() {
-        Item[] temp;
+        T[] temp;
 
         if (this.size + 1 > this.item.length) {
-            temp = (Item[]) new Object[this.size * 2];
+            temp = (T[]) new Object[this.size * 2];
             for (int i = 0; i < this.size; i += 1) {
                 temp[i] = this.item[(i + this.startIndex) % this.item.length];
             }
         } else {
-            temp = (Item[]) new Object[this.item.length / 2];
+            temp = (T[]) new Object[this.item.length / 2];
             for (int i = 0; i < this.size; i += 1) {
                 temp[i] = this.item[(i + this.startIndex) % this.item.length];
             }
@@ -33,7 +33,7 @@ public class ArrayDeque <Item> {
         this.endIndex = this.size;
     }
 
-    public void addFirst(Item i) {
+    public void addFirst(T i) {
         if (this.size + 1 > this.item.length) {
             this.reSize();
         }
@@ -43,7 +43,7 @@ public class ArrayDeque <Item> {
         this.size += 1;
     }
 
-    public void addLast(Item i) {
+    public void addLast(T i) {
         if (this.size + 1 > this.item.length) {
             this.reSize();
         }
@@ -53,8 +53,12 @@ public class ArrayDeque <Item> {
         this.size += 1;
     }
 
-    public Item removeFirst() {
-        Item ans = this.item[this.startIndex];
+    public T removeFirst() {
+        if (this.size <= 0) {
+            return null;
+        }
+
+        T ans = this.item[this.startIndex];
         this.item[this.startIndex] = null;
         this.size -= 1;
         this.startIndex = (this.startIndex + 1) % this.item.length;
@@ -66,8 +70,12 @@ public class ArrayDeque <Item> {
         return ans;
     }
 
-    public Item removeLast() {
-        Item ans = this.item[this.endIndex];
+    public T removeLast() {
+        if (this.size <= 0) {
+            return null;
+        }
+
+        T ans = this.item[this.endIndex];
         this.item[this.endIndex] = null;
         this.size -= 1;
         this.endIndex = (this.endIndex + this.item.length - 1) % this.item.length;
@@ -79,7 +87,7 @@ public class ArrayDeque <Item> {
         return ans;
     }
 
-    public Item get(int i) {
+    public T get(int i) {
         return this.item[(this.startIndex + i) % this.item.length];
     }
 

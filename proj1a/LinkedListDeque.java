@@ -1,19 +1,19 @@
-public class LinkedListDeque<Item> {
+public class LinkedListDeque<T> {
     private class node {
-        Item item;
+        T item;
         node next;
         node prev;
 
-        public node(Item i, node n, node p) {
+        public node(T i, node n, node p) {
             this.item = i;
             this.next = n;
             this.prev = p;
         }
     }
 
-    public int size;
-    public node sentinelFront;
-    public node sentinelEnd;
+    private int size;
+    private node sentinelFront;
+    private node sentinelEnd;
 
     public LinkedListDeque() {
         sentinelFront = new node(null, null, null);
@@ -24,7 +24,7 @@ public class LinkedListDeque<Item> {
         this.size = 0;
     }
 
-    public LinkedListDeque(Item i) {
+    public LinkedListDeque(T i) {
         sentinelFront = new node(null, null, null);
         sentinelEnd = new node(null, null, null);
         node temp = new node(i, sentinelEnd, sentinelFront);
@@ -34,7 +34,7 @@ public class LinkedListDeque<Item> {
         this.size = 1;
     }
 
-    public void addFirst(Item i) {
+    public void addFirst(T i) {
         node temp = new node(i, sentinelFront.next, sentinelFront);
         sentinelFront.next.prev = temp;
         sentinelFront.next = temp;
@@ -42,7 +42,7 @@ public class LinkedListDeque<Item> {
         this.size += 1;
     }
 
-    public void addLast(Item i) {
+    public void addLast(T i) {
         node temp = new node(i, sentinelEnd, sentinelEnd.prev);
         sentinelEnd.prev.next = temp;
         sentinelEnd.prev = temp;
@@ -50,7 +50,7 @@ public class LinkedListDeque<Item> {
         this.size += 1;
     }
 
-    public Item removeFirst() {
+    public T removeFirst() {
         if (this.isEmpty()) {
             System.out.println("Empty");
             return null;
@@ -65,7 +65,7 @@ public class LinkedListDeque<Item> {
         return ans.item;
     }
 
-    public Item removeLast() {
+    public T removeLast() {
         if (this.isEmpty()) {
             System.out.println("Empty");
             return null;
@@ -80,7 +80,7 @@ public class LinkedListDeque<Item> {
         return ans.item;
     }
 
-    public Item get(int n) {
+    public T get(int n) {
         if ((n > this.size() - 1) || (n < 0)) {
             System.out.println("Error: Out of Bound.");
             return null;
@@ -113,25 +113,6 @@ public class LinkedListDeque<Item> {
     }
 
     public static void main(String[] args) {
-//        LinkedListDeque<Integer> test1 = new LinkedListDeque<Integer>();
-//        test1.addLast(-1);
-//        test1.printDeque();
-//        System.out.println();
-//
-//        test1.removeFirst();
-//        test1.printDeque();
-//        System.out.println();
 
-        LinkedListDeque<Integer> test2 = new LinkedListDeque<Integer>(10);
-        test2.printDeque();
-        System.out.println();
-
-        test2.addFirst(5);
-        //test2.printDeque();
-        System.out.println();
-
-        test2.addLast(-1);
-        //test2.printDeque();
-        System.out.println();
     }
 }
