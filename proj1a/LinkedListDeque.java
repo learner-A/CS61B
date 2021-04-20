@@ -1,10 +1,10 @@
 public class LinkedListDeque<T> {
-    private class node {
+    private class Node {
         T item;
-        node next;
-        node prev;
+        Node next;
+        Node prev;
 
-        public node(T i, node n, node p) {
+        public Node(T i, Node n, Node p) {
             this.item = i;
             this.next = n;
             this.prev = p;
@@ -12,12 +12,12 @@ public class LinkedListDeque<T> {
     }
 
     private int size;
-    private node sentinelFront;
-    private node sentinelEnd;
+    private Node sentinelFront;
+    private Node sentinelEnd;
 
     public LinkedListDeque() {
-        sentinelFront = new node(null, null, null);
-        sentinelEnd = new node(null, null, null);
+        sentinelFront = new Node(null, null, null);
+        sentinelEnd = new Node(null, null, null);
 
         sentinelFront.next = sentinelEnd;
         sentinelEnd.prev = sentinelFront;
@@ -25,9 +25,9 @@ public class LinkedListDeque<T> {
     }
 
     public LinkedListDeque(T i) {
-        sentinelFront = new node(null, null, null);
-        sentinelEnd = new node(null, null, null);
-        node temp = new node(i, sentinelEnd, sentinelFront);
+        sentinelFront = new Node(null, null, null);
+        sentinelEnd = new Node(null, null, null);
+        Node temp = new Node(i, sentinelEnd, sentinelFront);
 
         sentinelFront.next = temp;
         sentinelEnd.prev = temp;
@@ -35,7 +35,7 @@ public class LinkedListDeque<T> {
     }
 
     public void addFirst(T i) {
-        node temp = new node(i, sentinelFront.next, sentinelFront);
+        Node temp = new Node(i, sentinelFront.next, sentinelFront);
         sentinelFront.next.prev = temp;
         sentinelFront.next = temp;
 
@@ -43,7 +43,7 @@ public class LinkedListDeque<T> {
     }
 
     public void addLast(T i) {
-        node temp = new node(i, sentinelEnd, sentinelEnd.prev);
+        Node temp = new Node(i, sentinelEnd, sentinelEnd.prev);
         sentinelEnd.prev.next = temp;
         sentinelEnd.prev = temp;
 
@@ -56,8 +56,8 @@ public class LinkedListDeque<T> {
             return null;
         }
 
-        node ans = this.sentinelFront.next;
-        node temp = this.sentinelFront.next.next;
+        Node ans = this.sentinelFront.next;
+        Node temp = this.sentinelFront.next.next;
         this.sentinelFront.next = temp;
         temp.prev = sentinelFront;
 
@@ -71,8 +71,8 @@ public class LinkedListDeque<T> {
             return null;
         }
 
-        node ans = this.sentinelEnd.prev;
-        node temp = this.sentinelEnd.prev.prev;
+        Node ans = this.sentinelEnd.prev;
+        Node temp = this.sentinelEnd.prev.prev;
         this.sentinelEnd.prev = temp;
         temp.next = sentinelEnd;
 
@@ -82,11 +82,10 @@ public class LinkedListDeque<T> {
 
     public T get(int n) {
         if ((n > this.size() - 1) || (n < 0)) {
-            System.out.println("Error: Out of Bound.");
             return null;
         }
 
-        node p = this.sentinelFront.next;
+        Node p = this.sentinelFront.next;
 
         for (int i = 0; i < n; i += 1) {
             p = p.next;
@@ -104,15 +103,11 @@ public class LinkedListDeque<T> {
     }
 
     public void printDeque() {
-        node p = this.sentinelFront.next;
+        Node p = this.sentinelFront.next;
         while (p.item != null) {
             System.out.print(p.item);
             System.out.print(" ");
             p = p.next;
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }

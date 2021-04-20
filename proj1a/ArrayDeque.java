@@ -8,7 +8,7 @@ public class ArrayDeque<T> {
         this.item = (T[]) new Object[8];
         this.size = 0;
         this.startIndex = 0;
-        this.endIndex = this.size;
+        this.endIndex = 0;
     }
 
     private void reSize() {
@@ -28,7 +28,7 @@ public class ArrayDeque<T> {
 
         this.item = temp;
         this.startIndex = 0;
-        this.endIndex = this.size;
+        this.endIndex = this.size - 1;
     }
 
     public void addFirst(T i) {
