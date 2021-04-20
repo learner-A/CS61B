@@ -115,6 +115,7 @@ public class ArrayDeque<T> {
             System.out.print(" ");
         }
     }
+}
 
 //    private void print() {
 //        for (int i = 0; i < this.item.length; i += 1) {

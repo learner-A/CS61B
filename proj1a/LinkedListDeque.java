@@ -102,9 +102,9 @@ public class LinkedListDeque<T> {
 
     public T getRecursive(int n) {
         if ((n > this.size() - 1) || (n < 0)) {
-            return null;
+        return null;
         }
-        return this.sentinelFront.next.getRecursiveHelper(n);
+    return this.sentinelFront.next.getRecursiveHelper(n);
     }
 
     public int size() {
