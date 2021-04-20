@@ -1,5 +1,3 @@
-import javax.swing.plaf.synth.SynthTextAreaUI;
-
 public class ArrayDeque<T> {
     private int size;
     private T[] item;
@@ -108,6 +106,4 @@ public class ArrayDeque<T> {
             System.out.print(" ");
         }
     }
-
-    public static void main(String[] args) { }
 }
