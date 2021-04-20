@@ -36,8 +36,8 @@ public class ArrayDeque<T> {
             this.reSize();
         }
 
-        this.startIndex = (this.startIndex + this.item.length - 1) % this.item.length;
         this.item[startIndex] = i;
+        this.startIndex = (this.startIndex + this.item.length - 1) % this.item.length;
         this.size += 1;
     }
 
@@ -106,4 +106,21 @@ public class ArrayDeque<T> {
             System.out.print(" ");
         }
     }
+
+//    private void print() {
+//        for (int i = 0; i < this.item.length; i += 1) {
+////            if (this.item[i % this.item.length] == null) {
+////                return;
+////            }
+//            System.out.print(this.item[i]);
+//            System.out.print(" ");
+//        }
+//    }
+//
+//
+//    public static void main(String[] args) {
+//        ArrayDeque<Integer> test1 = new ArrayDeque<>();
+//        test1.addFirst(3);
+//        System.out.println(test1.removeLast());
+//    }
 }
