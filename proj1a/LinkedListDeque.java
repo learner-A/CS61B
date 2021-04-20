@@ -9,6 +9,14 @@ public class LinkedListDeque<T> {
             this.next = n;
             this.prev = p;
         }
+
+        private T getRecursiveHelper(int i) {
+            if (i == 0) {
+                return this.item;
+            }
+
+            return this.next.getRecursiveHelper(i - 1);
+        }
     }
 
     private int size;
@@ -52,7 +60,6 @@ public class LinkedListDeque<T> {
 
     public T removeFirst() {
         if (this.isEmpty()) {
-            System.out.println("Empty");
             return null;
         }
 
@@ -67,7 +74,6 @@ public class LinkedListDeque<T> {
 
     public T removeLast() {
         if (this.isEmpty()) {
-            System.out.println("Empty");
             return null;
         }
 
@@ -92,6 +98,13 @@ public class LinkedListDeque<T> {
         }
 
         return p.item;
+    }
+
+    public T getRecursive(int n) {
+        if ((n > this.size() - 1) || (n < 0)) {
+            return null;
+        }
+        return this.sentinelFront.next.getRecursiveHelper(n);
     }
 
     public int size() {

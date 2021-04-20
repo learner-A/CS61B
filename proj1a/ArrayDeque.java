@@ -36,8 +36,10 @@ public class ArrayDeque<T> {
             this.reSize();
         }
 
+        if (!this.isEmpty()) {
+            this.startIndex = (this.startIndex + this.item.length - 1) % this.item.length;
+        }
         this.item[startIndex] = i;
-        this.startIndex = (this.startIndex + this.item.length - 1) % this.item.length;
         this.size += 1;
     }
 
@@ -45,9 +47,10 @@ public class ArrayDeque<T> {
         if (this.size + 1 > this.item.length) {
             this.reSize();
         }
-
+        if (!this.isEmpty()) {
+            this.endIndex = (this.endIndex + 1) % this.item.length;
+        }
         this.item[endIndex] = i;
-        this.endIndex = (this.endIndex + 1) % this.item.length;
         this.size += 1;
     }
 
@@ -109,9 +112,9 @@ public class ArrayDeque<T> {
 
 //    private void print() {
 //        for (int i = 0; i < this.item.length; i += 1) {
-////            if (this.item[i % this.item.length] == null) {
-////                return;
-////            }
+//            if (this.item[i % this.item.length] == null) {
+//                return;
+//            }
 //            System.out.print(this.item[i]);
 //            System.out.print(" ");
 //        }
@@ -121,6 +124,7 @@ public class ArrayDeque<T> {
 //    public static void main(String[] args) {
 //        ArrayDeque<Integer> test1 = new ArrayDeque<>();
 //        test1.addFirst(3);
-//        System.out.println(test1.removeLast());
+//        test1.addLast(-1);
+//        System.out.println(test1.removeFirst());
 //    }
 }
