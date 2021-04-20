@@ -32,15 +32,15 @@ public class LinkedListDeque<T> {
         this.size = 0;
     }
 
-    public LinkedListDeque(T i) {
-        sentinelFront = new Node(null, null, null);
-        sentinelEnd = new Node(null, null, null);
-        Node temp = new Node(i, sentinelEnd, sentinelFront);
-
-        sentinelFront.next = temp;
-        sentinelEnd.prev = temp;
-        this.size = 1;
-    }
+//    public LinkedListDeque(T i) {
+//        sentinelFront = new Node(null, null, null);
+//        sentinelEnd = new Node(null, null, null);
+//        Node temp = new Node(i, sentinelEnd, sentinelFront);
+//
+//        sentinelFront.next = temp;
+//        sentinelEnd.prev = temp;
+//        this.size = 1;
+//    }
 
     public void addFirst(T i) {
         Node temp = new Node(i, sentinelFront.next, sentinelFront);
