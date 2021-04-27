@@ -26,15 +26,15 @@ public class TestPalindrome {
         Deque<Character> testD;
 
         for (String i : inputTrue) {
-            testD = palindrome.wordToDeque(i);
+            //testD = palindrome.wordToDeque(i);
             assertTrue(test.isPalindrome(i));
-            assertTrue(test.isPalindromeDeque(testD));
+            //assertTrue(test.isPalindromeDeque(testD));
         }
 
         for (String i : inputFalse) {
-            testD = palindrome.wordToDeque(i);
+            //testD = palindrome.wordToDeque(i);
             assertFalse(test.isPalindrome(i));
-            assertFalse(test.isPalindromeDeque(testD));
+            //assertFalse(test.isPalindromeDeque(testD));
         }
 
         OffByN offBy2 = new OffByN(2);
