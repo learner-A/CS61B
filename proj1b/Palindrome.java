@@ -9,7 +9,7 @@ public class Palindrome {
         return ans;
     }
 
-    private boolean isPalindrome(String word) {
+    public boolean isPalindrome(String word) {
         for (int i = 0; i < (word.length() / 2); i += 1) {
             int j = word.length() - i - 1;
             if (word.charAt(i) != word.charAt(j)) {
@@ -19,7 +19,7 @@ public class Palindrome {
         return true;
     }
 
-    public boolean isPalindrome(Deque<Character> dc) {
+    private boolean isPalindrome(Deque<Character> dc) {
         for (int i = 0; i < (dc.size() / 2); i += 1) {
             if (dc.removeFirst() != dc.removeLast()) {
                 return false;
