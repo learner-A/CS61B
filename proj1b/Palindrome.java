@@ -10,7 +10,7 @@ public class Palindrome {
     }
 
     public boolean isPalindrome(String word) {
-        for (int i = 0; i < word.length(); i += 1) {
+        for (int i = 0; i < (word.length() / 2); i += 1) {
             int j = word.length() - i - 1;
             if (word.charAt(i) != word.charAt(j)) {
                 return false;
@@ -19,8 +19,17 @@ public class Palindrome {
         return true;
     }
 
+    public boolean isPalindrome(Deque<Character> word) {
+        for (int i = 0; i < (word.size() / 2); i += 1) {
+            if (word.removeFirst() != word.removeLast()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public boolean isPalindrome(String word, CharacterComparator cc) {
-        for (int i = 0; i < word.length(); i += 1) {
+        for (int i = 0; i < (word.length() / 2); i += 1) {
             int j = word.length() - i - 1;
             if (!cc.equalChars(word.charAt(i), word.charAt(j)) && (i - j != 0)) {
                 return false;

@@ -20,26 +20,30 @@ public class TestPalindrome {
     @Test
     public void testIsPalindrome() {
         Palindrome test = new Palindrome();
+        String[] inputTrue = new String[]{"", " ", "k", "racecar", "KEK", "&&", "12321"};
+        String[] inputFalse = new String[]{"CAT", "cat", "Cac", "#@", "123", "horse", "aaaaaaaaab"};
 
-        assertTrue(test.isPalindrome(""));
-        assertTrue(test.isPalindrome(" "));
-        assertTrue(test.isPalindrome("k"));
-        assertTrue(test.isPalindrome("racecar"));
-        assertTrue(test.isPalindrome("keek"));
-        assertTrue(test.isPalindrome("KEEK"));
-        assertTrue(test.isPalindrome("&&"));
-        assertTrue(test.isPalindrome("12321"));
-        assertTrue(test.isPalindrome("CaC"));
+        Deque<Character> testD;
 
-        assertFalse(test.isPalindrome("CAT"));
-        assertFalse(test.isPalindrome("cat"));
-        assertFalse(test.isPalindrome("Cac"));
-        assertFalse(test.isPalindrome("ab"));
-        assertFalse(test.isPalindrome("#@"));
-        assertFalse(test.isPalindrome("az"));
-        assertFalse(test.isPalindrome("123"));
-        assertFalse(test.isPalindrome("horse"));
-        assertFalse(test.isPalindrome("aaaaaaaaab"));
+        for (String i : inputTrue) {
+            testD = palindrome.wordToDeque(i);
+            assertTrue(test.isPalindrome(i));
+            assertTrue(test.isPalindrome(testD));
+        }
+
+        for (String i : inputFalse) {
+            testD = palindrome.wordToDeque(i);
+            assertFalse(test.isPalindrome(i));
+            assertFalse(test.isPalindrome(testD));
+        }
+
+        OffByN offBy2 = new OffByN(2);
+        assertTrue(test.isPalindrome("acec", offBy2));
+        assertFalse(test.isPalindrome("achf", offBy2));
+
+        OffByN offBy5 = new OffByN(5);
+        assertTrue(test.isPalindrome("achf", offBy5));
+        assertFalse(test.isPalindrome("acec", offBy5));
     }
 }
 
