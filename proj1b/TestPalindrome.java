@@ -1,6 +1,4 @@
 import org.junit.Test;
-import org.junit.Assert;
-
 import static org.junit.Assert.*;
 
 public class TestPalindrome {
@@ -22,13 +20,19 @@ public class TestPalindrome {
     @Test
     public void testIsPalindrome() {
         Palindrome test = new Palindrome();
-        assertTrue(test.isPalindrome("racecar"));
-        assertFalse(test.isPalindrome("cat"));
-        assertTrue(test.isPalindrome("noon"));
+
         assertTrue(test.isPalindrome(""));
+        assertTrue(test.isPalindrome(" "));
+        assertTrue(test.isPalindrome("k"));
+        assertTrue(test.isPalindrome("racecar"));
         assertTrue(test.isPalindrome("keek"));
-        assertFalse(test.isPalindrome("horse"));
-        assertFalse(test.isPalindrome("aaaaaab"));
+        assertTrue(test.isPalindrome("&&"));
+
+        assertFalse(test.isPalindrome("cat"));
+        assertFalse(test.isPalindrome("Cac"));
+        assertFalse(test.isPalindrome("ab"));
+        assertFalse(test.isPalindrome("#@"));
+        assertFalse(test.isPalindrome("az"));
     }
 }
 
