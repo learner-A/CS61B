@@ -40,9 +40,10 @@ public class Palindrome {
     }
 
     private boolean isPalindromeDeque(Deque<Character> word, CharacterComparator cc) {
-        for (int i = 0; i < (word.size() / 2); i += 1) {
-            int j = word.size() - i - 1;
-            if (!cc.equalChars(word.removeFirst(), word.removeLast()) && (i - j != 0)) {
+        while (word.size() > 1) {
+            char a = word.removeFirst();
+            char b = word.removeLast();
+            if (!cc.equalChars(a, b)) {
                 return false;
             }
         }
