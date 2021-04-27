@@ -28,13 +28,13 @@ public class TestPalindrome {
         for (String i : inputTrue) {
             testD = palindrome.wordToDeque(i);
             assertTrue(test.isPalindrome(i));
-            //assertTrue(test.isPalindrome(testD));
+            assertTrue(test.isPalindromeDeque(testD));
         }
 
         for (String i : inputFalse) {
             testD = palindrome.wordToDeque(i);
             assertFalse(test.isPalindrome(i));
-            //assertFalse(test.isPalindrome(testD));
+            assertFalse(test.isPalindromeDeque(testD));
         }
 
         OffByN offBy2 = new OffByN(2);

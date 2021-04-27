@@ -28,6 +28,10 @@ public class Palindrome {
         return true;
     }
 
+    public boolean isPalindromeDeque(Deque<Character> word) {
+        return isPalindrome(word);
+    }
+
     public boolean isPalindrome(String word, CharacterComparator cc) {
         for (int i = 0; i < (word.length() / 2); i += 1) {
             int j = word.length() - i - 1;
