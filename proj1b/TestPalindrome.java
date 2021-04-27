@@ -26,13 +26,20 @@ public class TestPalindrome {
         assertTrue(test.isPalindrome("k"));
         assertTrue(test.isPalindrome("racecar"));
         assertTrue(test.isPalindrome("keek"));
+        assertTrue(test.isPalindrome("KEEK"));
         assertTrue(test.isPalindrome("&&"));
+        assertTrue(test.isPalindrome("12321"));
+        assertTrue(test.isPalindrome("CaC"));
 
+        assertFalse(test.isPalindrome("CAT"));
         assertFalse(test.isPalindrome("cat"));
         assertFalse(test.isPalindrome("Cac"));
         assertFalse(test.isPalindrome("ab"));
         assertFalse(test.isPalindrome("#@"));
         assertFalse(test.isPalindrome("az"));
+        assertFalse(test.isPalindrome("123"));
+        assertFalse(test.isPalindrome("horse"));
+        assertFalse(test.isPalindrome("aaaaaaaaab"));
     }
 }
 

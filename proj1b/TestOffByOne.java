@@ -14,6 +14,8 @@ public class TestOffByOne {
         assertTrue(test.isPalindrome("%&", offByOne));
         assertTrue(test.isPalindrome("flake", offByOne));
         assertTrue(test.isPalindrome("ab", offByOne));
+        assertTrue(test.isPalindrome("12", offByOne));
+        assertTrue(test.isPalindrome("122", offByOne));
 
 
         assertFalse(test.isPalindrome("%!", offByOne));
@@ -24,5 +26,7 @@ public class TestOffByOne {
         assertFalse(test.isPalindrome("KEEK", offByOne));
         assertFalse(test.isPalindrome("horse", offByOne));
         assertFalse(test.isPalindrome("aaaaaab", offByOne));
+        assertFalse(test.isPalindrome("11", offByOne));
     }
 }
+
